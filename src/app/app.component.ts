@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+import { CarsComponent } from './cars/cars.component';
 
 @Component({
   selector: 'pp-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `<div>
+                <h1 class="title">{{pageTitle}}</h1>
+                <pp-cars></pp-cars>
+            </div>`,
+  styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = 'practice-project';
+  pageTitle: string = 'CarFinder.com';
 }

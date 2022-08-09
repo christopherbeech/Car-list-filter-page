@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="filter">
+            <label for="filter">Filter by:</label>
+            <input id="filter" type="text" placeholder="e.g. Jeep" [(ngModel)]="filterList">
+        </div>
+        <h2>Filterd by: {{filterList}}</h2>
+
+        <div class="btn-container">
+            <button class="btn" (click) = "carImage()">{{showImage ? "Hide" : "Show"}} Image</button>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th><h3>Name</h3></th>
+                        <th><h3>Year</h3></th>
+                        <th><h3>Miles</h3></th>
+                        <th><h3>Price</h3></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let car of filteredCars">
+                        <td>
+                            <img class="car-image" *ngIf="showImage" [src]="car.carImage" alt="a picture of a car">
+                        </td>
+                        <td>
+                            {{car.carName}}
+                        </td>
+                        <td>
+                            {{car.carYear}}
+                        </td>
+                        <td>
+                            {{car.carMiles}}
+                        </td>
+                        <td>
+                            {{car.carPrice}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
